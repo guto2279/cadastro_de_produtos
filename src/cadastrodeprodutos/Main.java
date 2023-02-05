@@ -10,9 +10,10 @@ import java.util.regex.Pattern;
 public class Main {
 
 	public static void main (String [] args) throws Exception {
+		
 		System.out.println("--- Pedido de Vendas ---");
 	
-		int option = 0;
+		Integer option = new Integer(0);
 		// instanciar classe Scanner para pegar dados de entrada
 		Scanner scanner = new Scanner (System.in);
 		
@@ -40,10 +41,10 @@ public class Main {
 				String descricao = scanner.nextLine();
 				
 				System.out.print("Digite o id do produto: ");
-				int id = scanner.nextInt();
+				Integer id = scanner.nextInt();
 				
 				System.out.println("Digite o preço do produto: ");
-				double preco = scanner.nextDouble();
+				Double preco = scanner.nextDouble();
 				
 				System.out.println("Digite a data de validade: ");
 				String dataString = scanner.next();

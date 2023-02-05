@@ -2,19 +2,19 @@ package models;
 import java.util.Date;
 
 public class Produtos {
-	private int id;
+	private Integer id;
 	private String descricao;
-	private double preco;
+	private Double preco;
 	private Date dataValidade;
 	
-	public Produtos (int id, String descricao, double preco, Date dataValidade) {
+	public Produtos (Integer id, String descricao, Double preco, Date dataValidade) {
 		this.id = id;
 		this.descricao = descricao;
 		this.preco = preco;
 		this.dataValidade = dataValidade;
 	}	
 	
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -23,7 +23,7 @@ public class Produtos {
 		this.descricao = descricao;
 	}
 	
-	public int getId () {
+	public Integer getId () {
 		return id;
 	}
 	
@@ -31,7 +31,7 @@ public class Produtos {
 		return descricao;
 	}
 	
-	public double getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
 	
