@@ -4,10 +4,15 @@ import models.Produtos;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import db.ProdutosDB;
+
 public class Main {
+	
+	static ProdutosDB produtosDB = new ProdutosDB();
 
 	public static void main (String [] args) throws Exception {
 		System.out.println("--- Pedido de Vendas ---");
@@ -17,7 +22,8 @@ public class Main {
 		Scanner scanner = new Scanner (System.in);
 		
 		do {
-			System.out.println("1 - Cadastrar produto");
+			System.out.println("1 - Cadastrar produtos");
+			System.out.println("2 - Listar produtos cadastrados");
 			System.out.println("0 - Sair");
 			
 			System.out.println("Digite a operação que deseja realizar: ");
@@ -55,12 +61,25 @@ public class Main {
 				//novoProduto.setDescricao(descricao);
 				System.out.println("Produto criado com sucesso!");
 				
-				// Mostrar na tela id e descrição coletados
-				System.out.println("--- Id: " + novoProduto.getId());
-				System.out.println("--- Descricao: " + novoProduto.getDescricao());
-				System.out.println("--- Preço: " + novoProduto.getPreco());
-				System.out.println("--- Data de validade: " + novoProduto.getDataValidade());
+				
+				produtosDB.addNovoProduto(novoProduto);
+				break;
+				
 			}
+			
+			case 2: {
+				List<Produtos> listaDeProdutos = produtosDB.getProdutosList();
+				
+				for (Produtos produtos : listaDeProdutos) {
+					System.out.println("--- Id: " + produtos.getId());
+					System.out.println("--- Descricao: " + produtos.getDescricao());
+					System.out.println("--- Preço: " + produtos.getPreco());
+					System.out.println("--- Data de validade: " + produtos.getDataValidade());
+					System.out.println("----------------------------------------------");
+					break;
+				}
+			}
+			
 		}
 	}
 }
